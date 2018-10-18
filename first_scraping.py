@@ -8,8 +8,10 @@ obj = BeautifulSoup(html.read(), features="html.parser")
 target = obj.find_all(class_="table-cmn_01 s-mb-10")
 
 print(len(target))
+print(target[0])
 
-for table in obj.find_all(class_="table-cmn_01 s-mb-10"):
-    print(table)
+#for table in obj.find_all(class_="table-cmn_01 s-mb-10"):
+#   print(table.tbody)
+
 
 
