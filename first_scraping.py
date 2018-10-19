@@ -12,6 +12,3 @@ print(target[0])
 
 #for table in obj.find_all(class_="table-cmn_01 s-mb-10"):
 #   print(table.tbody)
-
-
-
