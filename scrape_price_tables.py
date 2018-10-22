@@ -6,6 +6,41 @@ base_path = 'csv'
 if not os.path.exists(base_path):
     os.mkdir(base_path)
 
+
+def get_price_sbi(url):
+    path = base_path + '/SBI'
+    if not os.path.exists(path):
+        os.mkdir(path)
+
+    table = pd.io.html.read_html(url)
+    yakujo = table[1]
+    yakujo.to_csv(path + '/現物取引.csv')
+
+
+def get_price_matsui(url):
+    path = base_path + '/松井'
+    if not os.path.exists(path):
+        os.mkdir(path)
+
+    table = pd.io.html.read_html(url)
+    yakujo = table[0]
+
+    yakujo.to_csv(path + '/1日の約定金合計金額.csv')
+
+
+def get_price_gmo(url):
+    path = base_path + '/GMO'
+    if not os.path.exists(path):
+        os.mkdir(path)
+
+    table = pd.io.html.read_html(url)
+    yakujo = table[0]
+    tegaku = table[1]
+
+    yakujo.to_csv(path + '/1約定ごとプラン.csv')
+    tegaku.to_csv(path + '/1日定額プラン.csv')
+
+
 def get_price_monex(url):
     path = base_path + '/マネックス'
     if not os.path.exists(path):
@@ -39,10 +74,14 @@ get_price_monex(monex)
 rakuten = "https://www.rakuten-sec.co.jp/web/commission/"
 get_price_rakuten(rakuten)
 
+gmo = "https://www.click-sec.com/corp/guide/commission_list/"
+get_price_gmo(gmo)
 
+matsui = "https://www.matsui.co.jp/fee/"
+get_price_matsui(matsui)
 
-
-
+sbi = "https://www.sbisec.co.jp/ETGate/WPLETmgR001Control?OutSide=on&getFlg=on&burl=search_home&cat1=home&cat2=price&dir=price&file=home_price.html"
+get_price_sbi(sbi)
 
 
 
