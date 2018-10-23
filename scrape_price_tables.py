@@ -14,8 +14,14 @@ def get_price_sbi(url):
 
     table = pd.io.html.read_html(url)
     yakujo = table[1]
-    yakujo.to_csv(path + '/現物取引_standard.csv', header=False, index=False, columns={0, 1})
-    yakujo.to_csv(path + '/現物取引_active.csv', header=False, index=False, columns={2, 3})
+    standard = path + '/現物取引_standard.csv'
+    active = path + '/現物取引_active.csv'
+
+    yakujo.to_csv(standard, header=False, index=False, columns={0, 1})
+    pd.read_csv(standard).to_csv(standard, header=False, index=False)
+
+    yakujo.to_csv(active, header=False, index=False, columns={2, 3})
+    pd.read_csv(active).to_csv(active, header=False, index=False)
 
 
 def get_price_matsui(url):
@@ -67,16 +73,16 @@ def get_price_rakuten(url):
 
 
 monex = "https://info.monex.co.jp/service/fee/stock/index.html"
-get_price_monex(monex)
+#get_price_monex(monex)
 
 rakuten = "https://www.rakuten-sec.co.jp/web/commission/"
-get_price_rakuten(rakuten)
+#get_price_rakuten(rakuten)
 
 gmo = "https://www.click-sec.com/corp/guide/commission_list/"
-get_price_gmo(gmo)
+#get_price_gmo(gmo)
 
 matsui = "https://www.matsui.co.jp/fee/"
-get_price_matsui(matsui)
+#get_price_matsui(matsui)
 
 sbi = "https://www.sbisec.co.jp/ETGate/WPLETmgR001Control?OutSide=on&getFlg=on&burl=search_home&cat1=home&cat2=price&dir=price&file=home_price.html"
 get_price_sbi(sbi)
