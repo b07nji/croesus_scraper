@@ -73,16 +73,16 @@ def get_price_rakuten(url):
 
 
 monex = "https://info.monex.co.jp/service/fee/stock/index.html"
-#get_price_monex(monex)
+get_price_monex(monex)
 
 rakuten = "https://www.rakuten-sec.co.jp/web/commission/"
-#get_price_rakuten(rakuten)
+get_price_rakuten(rakuten)
 
 gmo = "https://www.click-sec.com/corp/guide/commission_list/"
-#get_price_gmo(gmo)
+get_price_gmo(gmo)
 
 matsui = "https://www.matsui.co.jp/fee/"
-#get_price_matsui(matsui)
+get_price_matsui(matsui)
 
 sbi = "https://www.sbisec.co.jp/ETGate/WPLETmgR001Control?OutSide=on&getFlg=on&burl=search_home&cat1=home&cat2=price&dir=price&file=home_price.html"
 get_price_sbi(sbi)
