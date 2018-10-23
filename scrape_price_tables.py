@@ -14,7 +14,7 @@ def get_price_sbi(url):
 
     table = pd.io.html.read_html(url)
     yakujo = table[1]
-    yakujo.to_csv(path + '/現物取引.csv', header=False, index=False, sep='\t')
+    yakujo.to_csv(path + '/現物取引.csv', header=False, index=False)
 
 
 def get_price_matsui(url):
@@ -25,7 +25,7 @@ def get_price_matsui(url):
     table = pd.io.html.read_html(url)
     yakujo = table[0]
 
-    yakujo.to_csv(path + '/1日の約定金合計金額.csv', index=False, sep='\t')
+    yakujo.to_csv(path + '/1日の約定金合計金額.csv', index=False)
 
 
 def get_price_gmo(url):
@@ -37,8 +37,8 @@ def get_price_gmo(url):
     yakujo = table[0]
     tegaku = table[1]
 
-    yakujo.to_csv(path + '/1約定ごとプラン.csv', header=False, index=False, sep='\t')
-    tegaku.to_csv(path + '/1日定額プラン.csv', header=False, index=False, sep='\t')
+    yakujo.to_csv(path + '/1約定ごとプラン.csv', header=False, index=False, columns={0, 1})
+    tegaku.to_csv(path + '/1日定額プラン.csv', header=False, index=False, columns={0, 1})
 
 
 def get_price_monex(url):
@@ -48,7 +48,7 @@ def get_price_monex(url):
 
     table = pd.io.html.read_html(url)
     target = table[0]
-    target.to_csv(path + '/monex_price.csv', header=False, index=False, sep='\t')
+    target.to_csv(path + '/monex_price.csv', header=False, index=False)
 
 
 def get_price_rakuten(url):
@@ -59,10 +59,10 @@ def get_price_rakuten(url):
 
     table = pd.io.html.read_html(url)
 
-    table[0].to_csv(path + '/現物_超割コース.csv', index=False, sep='\t')
-    table[2].to_csv(path + '/現物_超割コース(大口).csv', index=False, sep='\t')
+    table[0].to_csv(path + '/現物_超割コース.csv', index=False)
+    table[2].to_csv(path + '/現物_超割コース(大口).csv', index=False)
 
-    table[4].to_csv(path + '/一日定額コース.csv', index=False, sep='\t')
+    table[4].to_csv(path + '/一日定額コース.csv', index=False)
 
 
 monex = "https://info.monex.co.jp/service/fee/stock/index.html"
