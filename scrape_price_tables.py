@@ -14,7 +14,8 @@ def get_price_sbi(url):
 
     table = pd.io.html.read_html(url)
     yakujo = table[1]
-    yakujo.to_csv(path + '/現物取引.csv', header=False, index=False)
+    yakujo.to_csv(path + '/現物取引_standard.csv', header=False, index=False, columns={0, 1})
+    yakujo.to_csv(path + '/現物取引_active.csv', header=False, index=False, columns={2, 3})
 
 
 def get_price_matsui(url):
