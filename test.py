@@ -2,11 +2,9 @@ import pandas as pd
 import os
 
 
-tables = pd.read_html("https://www.sbisec.co.jp/ETGate/WPLETmgR001Control?OutSide=on&getFlg=on&burl=search_home&cat1=home&cat2=price&dir=price&file=home_price.html")
+index = ["5万円", "~10万円", "~20万円", "~30万円", "~40万円", "~50万円", "~100万円", "~150万円", "~200万円", "~3000万円", "3000万円超", "1億超"]
+cols = {"松井証券": [1,2,3,4,5,6,7,8,9,0,1,2], "マネックス証券": [1,2,3,4,5,6,7,8,9,0,1,2], "楽天証券": [1,2,3,4,5,6,7,8,9,0,1,2], "GMOクリック証券": [1,2,3,4,5,6,7,8,9,0,1,2], "SBI証券": [1,2,3,4,5,6,7,8,9,0,1,2]}
 
-yakujo = tables[1]
-
-#yakujo_a = tables[1]
-
-yakujo.to_csv('sbi_test.csv')
-
+df = pd.DataFrame(cols, index=index)
+df.to_csv('csv/手数料比較2.csv' )
+print(df)
